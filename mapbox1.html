@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title></title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.38.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.38.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        body { 
+            margin:20px; 
+            padding:0px; 
+        }
+        #map { 
+            position:absolute; 
+            top:0; 
+            bottom:0; 
+            height:70%;
+            width:60%;
+            border:4px solid #404040;
+        }
+        .marker {
+            /*background-image: url('http://www.iconsdb.com/icons/preview/orange/map-marker-2-xxl.png');*/
+            background-image: url('https://cdn1.iconfinder.com/data/icons/Map-Markers-Icons-Demo-PNG/256/Map-Marker-Flag--Left-Pink.png');
+            /*background-image: url('https://cdn3.iconfinder.com/data/icons/map-markers-2/512/marker_2-256.png');*/
+            background-size: cover;
+            width: 50px;
+            height: 50px;
+            /*border-radius: 50%;*/
+            cursor: pointer;
+        }
+
+        .mapboxgl-popup {
+            max-width: 320px;
+            height:auto;
+            font-size:20px;
+        }
+        .mapInfo{
+            position:fixed;
+            right:100px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="mapInfo">
+        <h1>E-Sports event calendar</h1>
+        <h1>June through September 2017</h1>
+        <h1>Click on a marker to learn more!</h1>
+     </div>
+
+    <div id='map'></div>
+
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoiZGdhYmFpIiwiYSI6ImNqNDNweGx1dDA3NG0zM243MGQzNzQ0bWcifQ.8Auku3GqYC_xjQFCYBtEMg';
+        var map = new mapboxgl.Map({
+    container: 'map', // container id
+    style: 'mapbox://styles/mapbox/streets-v9',
+    center: [-101.54, 39.58], // starting position
+    zoom: 3 // starting zoom
+
+});
+
+// Add zoom and rotation controls to the map.
+map.addControl(new mapboxgl.NavigationControl());
+
+var cities = [
+    {
+        "name": "Atlanta GA",
+        "lat": 33.775,
+        "lng": -84.382,
+        "description": "Terminus Conferece, " + "June 22nd - 25th, " + "https://terminusevent.com/"
+    },
+    {
+        "name": "Minneapolis MN",
+        "lat": 44.978,
+        "lng":  -93.269,
+        "description": "2D Con, " + "August 11 - 13th, " + "https://www.2dcon.net/"
+    },
+    {
+        "name": "Indianapolis IN",
+        "lat": 39.768,
+        "lng": -86.158,
+        "description": "Gen Con 50, " + "August 17 - 20th, " + "http://www.gencon.com/"
+    },
+     {
+        "name": "Austin TX",
+        "lat": 30.267,
+        "lng": -97.743,
+        "description": "Rooster Teeth Expo," + " July 7th - 9th," + " http://www.rtxaustin.com/"
+    },
+    {
+        "name":"San Jose CA",
+        "lat": 37.338,
+        "lng": -121.886,
+        "description": "Realities 360 Conference, " + " July 26th - 28th, " + "https://www.elearningguild.com/realities360/content/4900/2017-realities360-conference--home/?utm_campaign=r17se&utm_medium=social&utm_source=linkedin-arvrvw"
+    },
+    {
+        "name":"New York NY",
+        "lat": 40.712,
+        "lng": -74.005,
+        "description": "Games for Change, " + "July 31st - August 2nd, " + "http://festival.gamesforchange.org/"
+    },
+    {
+        "name":"Orlando FL",
+        "lat": 28.538,
+        "lng": -81.379,
+        "description": "Orlando Interactive Experience, " + "August 27th - August 30th, " + "http://www.orlandoix.com/"
+    },
+     {
+        "name":"Fiarfax, VA",
+        "lat": 38.846,
+        "lng": -77.306,
+        "description": "Serious Play Conferece, " + "July 18th-20th, " + "http://seriousplayconf.com/"
+    },
+    {
+        "name": "San Francisco CA",
+        "lat": 37.929,
+        "lng": -122.430,
+        "description": "VR Connects San Francisco, " + "June 27th-28th, " + "http://www.vr-connects.com/sanfrancisco/"
+    },
+    {   
+        "name":"Memphis TN",
+        "lat": 35.152,
+        "lng": -90.052,
+        "description": "Mid-South Indie Game Expo, " + "July 22nd, " + "http://www.midsouthigx.com/"
+    }
+];
+
+console.log(cities);
+
+var newArray = ["i","o",2,3,4,5,6,7,8,9];
+
+for (item in newArray){
+    console.log(newArray[item]);
+}
+
+for (city in cities){
+    console.log(cities[city]["name"]);    
+    var popup = new mapboxgl.Popup({offset: 50})
+        .setText(cities[city]["description"]);
+    var el = document.createElement('div');
+    el.className = 'marker';
+    new mapboxgl.Marker(el, {offset:[-25, -50]})
+        .setLngLat([cities[city]["lng"], cities[city]["lat"]])
+        .setPopup(popup) // sets a popup on this marker
+        .addTo(map);
+
+}
+
+/*// create the popups
+var popup2 = new mapboxgl.Popup({offset: 25})
+.setText('Memphis what what');
+
+var popup = new mapboxgl.Popup({offset: 25})
+.setText('This is Atlanta');
+
+// create DOM element for the marker
+var el = document.createElement('div');
+el.id = 'marker';
+
+console.log(el);
+
+// create the marker
+new mapboxgl.Marker(el, {offset:[-25, -25]})
+.setLngLat([-84.382, 33.775])
+    .setPopup(popup) // sets a popup on this marker
+    .addTo(map);
+
+    new mapboxgl.Marker(el, {offset:[-25, -25]})
+    .setLngLat([-90.052, 35.152])
+    .setPopup(popup2) // sets a popup on this marker
+    .addTo(map);    */
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,130 @@
+<html>
+<head>
+	<title>EpicGG - Your Gaming Content Source</title>
+
+
+	<script type="text/javascript" src="./assets/js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.1.2/firebase.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="shortcut icon" href="./assets/images/favicon.ico" type="image/x-icon" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Architects+Daughter|Armata|Bilbo+Swash+Caps|Orbitron|Caveat|Covered+By+Your+Grace|Give+You+Glory|Homemade+Apple|Julius+Sans+One|Jura|Kalam|Kristi|La+Belle+Aurore|Nothing+You+Could+Do|Over+the+Rainbow|Permanent+Marker|Rock+Salt|Shadows+Into+Light+Two|Waiting+for+the+Sunrise|Zeyada" rel="stylesheet">
+  
+
+  <script src= "https://player.twitch.tv/js/embed/v1.js"></script>
+  <link rel="stylesheet" type="text/css" href="./assets/css/defaultstyle.css">
+</head>
+<body>
+	<div class="modal fade" id="badSearch" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">No Results</h4>
+        </div>
+        <div class="modal-body">
+          Please check your search criteria and try again.      </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="noResults" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">No Results</h4>
+          </div>
+          <div class="modal-body">
+            Your search returned no results, please check your spelling and try again or browse the popular games section.      </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="container">
+        <div class="jumbotron">
+          <h1>Epic<span id="h2">GG</span></h1>
+          <p>Your Gaming Content Source</p>
+        </div>
+
+        <div class="row">
+         <div class="col-sm-10">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title" id="firstPanel">Panel title</h3>
+            </div>
+            <div class="panel-body">
+              <div class="row" id="firstContentRow">
+              </div>
+            </div>
+          </div>
+
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title" id="secondPanel">Panel title</h3>
+            </div>
+            <div class="panel-body">
+              <div class="row" id="secondContentRow">
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="col-sm-2 panel panel-default">
+          <div id="searchArea">
+            <input type="text" placeholder="Enter Game Here" id="value"></input>
+            <button id="send"><i class="fa fa-search"></i>
+            </button>
+          </div>
+          <div class="sidePanel">
+            <div class="sidePanelHeader">
+             <h3>Popular Games:</h3>
+           </div>
+           <div id="topGames">
+            <ul>
+
+            </ul>
+          </div>
+        </div>
+        <div class="sidePanel">
+          <div class="sidePanelHeader">
+            <h3>Mailing list</h3></div>
+            <div id="emailArea"><input type="email" id="userEmail" placeholder="Email Address">
+              <button id="emailButton" align="center">Sign Up!</button>
+            </div>
+          </div>
+          <div class="sidePanel">
+            <div class="sidePanelHeader">
+              <h3>Change Theme:</h3>
+            </div>
+            <div id="themeArea">
+              <button class="themeButton" id="blue"> </button>
+              <button class="themeButton" id="orange"> </button>
+              <button class="themeButton" id="donny"> </button>
+							<button class="themeButton" id="sidStyle"> </button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+     <link rel="stylesheet" type="text/css" href="./assets/css/defaultstyle.css">
+    <script src="https://www.gstatic.com/firebasejs/4.1.2/firebase.js"></script>
+    <link rel="stylesheet" id="styles" type="text/css" href="./assets/css/style.css">
+    <script type="text/javascript" src="./assets/js/script.js"></script>
+  </body>
+  </html>

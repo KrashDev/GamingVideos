@@ -1,0 +1,156 @@
+body {
+	background-image: url(../images/seablue.jpg);
+
+}
+
+.jumbotron h1 {
+	color:#808080;
+	margin-left:20px; 
+	text-shadow: 4px 4px #808080;
+	font-size:100px;
+	font-weight:bolder; 
+	display:inline;
+	font-family: 'Rock Salt', cursive;
+	
+}
+.previewImg {
+	text-shadow: 2px 2px #888888;
+}
+.panel {
+	background-image: url(../images/brickwall.png);
+
+}
+
+.jumbotron {
+	max-height:400px;
+	background-image: url(../images/dark-triangles.png);
+	
+
+}
+.jumbotron h2 {
+	/*text-shadow: 3px 3px #ffffb3;*/
+	color:#e6005c;
+	animation-name: example;
+    animation-duration: 4s;
+    animation-iteration-count:infinite;
+	letter-spacing:5px;
+	margin-left:10px;
+	font-weight:bold;
+	font-size:16em; 
+	display:inline;
+	font-family: 'Zeyada', cursive;	
+}
+
+@keyframes example {
+    0%   {color: #e6005c;}
+    20%  {color: #ffff1a;}
+    40%  {color: #ffa500;}
+    60%  {color: #66ff33;}
+    80%  {color: #0000ff;}
+    100% {color: #8000ff;}
+}
+
+h4 {
+	color:#808080;
+	margin-left:20px;
+	padding-top:10px;
+	font-size:40px;
+	display:inline;
+	border-top:2px solid #808080;
+	font-family: 'Armata', sans-serif;
+
+}
+
+.panel-default > .panel-heading {
+	background-color:#262626;
+	color:#808080;
+}
+
+.panel-default {
+	border-radius:6px;
+	border:3px solid #1a1a1a;
+}
+
+.preview {
+	display: inline-block;
+}
+
+.preview img {
+	height: auto;
+	max-width: 270px;
+	width: 100%;
+}
+
+#firstContentRow {
+	text-align: center;
+}
+#secondContentRow {
+	text-align: center;
+}
+
+.preview:nth-child(3n+1){
+      clear: left;
+}
+
+#topGames ul li {
+	list-style: none;
+	padding: 5px 0;
+	max-width: 100%;
+}
+
+#topGames ul {
+	padding: 0;
+}
+
+h3 {
+	font-size: 18px;
+	text-align: center;
+}
+
+#value {
+	max-width: 80%;
+	display: inline;
+	height: 30px;
+}
+
+#send {
+	display: inline;
+	height: 30px;
+}
+
+.panel-title {
+	text-align: left;
+}
+
+#firstPanel a {
+	text-decoration: none;
+}
+
+a:hover {
+	/*text-decoration: none;*/
+	background-color:#e6e6ff;
+}
+
+.nav li {
+	display:inline-block;
+}
+
+.navbar {
+	margin-bottom:10px;
+	max-height:50px;
+}
+
+#footer {
+	padding:10px;
+	font-size:20px;
+	color:#ffffff;
+	text-align:center;
+}
+.liveViewers {
+	color: red;
+}
+
+#topGames li:hover{
+	cursor: pointer;
+	background: #EEE;
+}

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<title>404 Animation</title>
+</head>
+<body>
+	
+	
+	<div id="one"></div>
+	<div id="two"></div>
+	<div id="three"></div>
+	<div id="four"></div>
+	<div id="five"></div>
+	<div id="six"></div>
+	<div id="seven"></div>
+	<div id="eight"></div>
+	<div id="nine"></div>
+	<div id="ten"></div>
+	<div id="eleven"></div>
+	<div id="twelve"></div>
+	<div id="thirteen"></div>
+	<div id="fourteen"></div>
+	<div id="fifteen"></div>
+	<div id="sixteen"></div>
+	<div id="seventeen"></div>
+	<div id="eighteen"></div>
+	<div id="nineteen"></div>
+	<div id="twenty"></div>
+	<div id="twentyone"></div>
+	<div id="twentytwo"></div>
+	<div id="twentythree"></div>
+	<div id="twentyfour"></div>
+	<div id="twentyfive"></div>
+	<div id="twentysix"></div>
+	<div id="twentyseven"></div>
+	<div id="twentyeight"></div>
+	<div id="twentynine"></div>
+	<div id="thirty"></div>
+
+	<h1>Page Not Found</h1>
+
+	<style>
+		body {
+			background-image: url(footer_lodyas.png);
+			/*background-color:black;*/
+		}
+
+		h1 {
+			position:relative;
+			color:##4d4d4d;
+			text-align:right;
+			right:100px;
+			font-size:60px;
+			animation-delay:5;
+			animation-duration:0.5s;
+			animation-iteration-count:1;
+			animation-name: boop;
+		}
+
+		/*@keyframes boop {
+			0% {opacity:1;color:#ffcccc;}
+			50% {color:#ccccff;}
+			100% {opacity:0;color:#ccffff;}
+		}*/
+
+		div {
+			width: 50px;
+			height: 50px;
+			position:fixed;
+			margin:10px;
+			border-radius: 5px;
+			box-shadow:3px 3px #404040;
+			background-color: #e6e6ff;
+			animation-duration:1.5s;
+			/*animation-direction:alternate;*/
+			animation-iteration-count:1;
+			/*animation-play-state:running;*/
+			animation-fill-mode: forwards; 
+		}
+
+		#one {
+			animation-delay: 0.15s;
+			animation-name: one;
+		}
+		#two {
+			animation-delay: 0.3s;
+			animation-name: two;
+		}
+		#three {
+			animation-delay:0.45s;
+			animation-name: three;
+		}
+		#four {
+			animation-delay: 0.6s;
+			animation-name: four;
+		}
+		#five {
+			animation-delay: 0.75s;
+			animation-name: five;
+		}
+
+		#six {
+			animation-delay: 0.9s;
+			animation-name: six;
+		}
+		#seven {
+			animation-delay: 1.05s;
+			animation-name: seven;
+		}
+		#eight {
+			animation-delay: 1.2s;
+			animation-name: eight;
+		}
+		#nine {
+			animation-delay: 1.35s;
+			animation-name: nine;
+		}
+		#ten {
+			animation-delay: 1.5s;
+			animation-name: ten;
+		}
+		#eleven {
+			animation-delay: 1.65s;
+			animation-name: eleven;
+		}
+		#twelve {
+			animation-delay: 1.8s;
+			animation-name: twelve;
+		}
+		#thirteen {
+			animation-delay: 1.95s;
+			animation-name: thirteen;
+		}
+		#fourteen {
+			animation-delay: 2.1s;
+			animation-name: fourteen;
+		}
+		#fifteen {
+			animation-delay: 2.25s;
+			animation-name: fifteen;
+		}
+
+		#sixteen {
+			animation-delay: 2.4s;
+			animation-name: sixteen;
+		}
+		#seventeen {
+			animation-delay: 2.55s;
+			animation-name: seventeen;
+		}
+		#eighteen {
+			animation-delay: 2.7s;
+			animation-name: eighteen;
+		}
+		#nineteen {
+			animation-delay: 2.85s;
+			animation-name: nineteen;
+		}
+		#twenty {
+			animation-delay: 3s;
+			animation-name: twenty;
+		}
+
+		#twentyone {
+			animation-delay: 3.15s;
+			animation-name: twentyone;
+		}
+		#twentytwo {
+			animation-delay: 3.3s;
+			animation-name: twentytwo;
+		}
+		#twentythree {
+			animation-delay: 3.45s;
+			animation-name: twentythree;
+		}
+		#twentyfour {
+			animation-delay: 3.6s;
+			animation-name: twentyfour;
+		}
+		#twentyfive {
+			animation-delay: 3.75s;
+			animation-name: twentyfive;
+		}
+
+		#twentysix {
+			animation-delay: 3.9s;
+			animation-name: twentysix;
+		}
+		#twentyseven {
+			animation-delay: 4.05s;
+			animation-name: twentyseven;
+		}
+		#twentyeight {
+			animation-delay: 4.2s;
+			animation-name: twentyeight;
+		}
+		#twentynine {
+			animation-delay: 4.35s;
+			animation-name: twentynine;
+		}
+		#thirty {
+			animation-delay: 4.5s;
+			animation-name: thirty;
+		}
+		/*right*/
+		@keyframes one {
+			0% {background-color:#ffcccc;left:0px;top:200px;}
+			50% {background-color:#ccccff;border-radius:20px;width:20px;height: 20px;}
+			100% {background-color:#ccffff;left:300px;top:200px;}
+			
+		}
+		/*down*/
+		@keyframes two {
+			0% {background-color:#ffcccc;left:420px;top:0px;}
+			50% {background-color:#ccccff;border-radius:20px;width:20px;height: 20px;}
+			100% {background-color:#ccffff;left:420px;top:200px;}
+		}
+		/*up*/
+		@keyframes three {
+			0% {background-color:#ffcccc;left:600px;top:1000px;}
+			50% {background-color:#ccccff;border-radius:20px;width:20px;height: 20px;}
+			100% {background-color:#ccffff;left:600px;top:200px;}
+		}
+		/*left*/
+		@keyframes four {
+			0% {background-color:#ffcccc;left:1000px;top:200px;}
+			50% {background-color:#ccccff;border-radius:20px;width:20px;height: 20px;}
+			100% {background-color:#ccffff;left:660px;top:200px;}
+		}
+		/*right*/
+		@keyframes five {
+			0% {background-color:#ffcccc;left:0px;top:200px;}
+			50% {background-color:#ccccff;border-radius:20px;width:20px;height: 20px;}
+			100% {background-color:#ccffff;left:720px;top:200px;}
+		}
+		
+		/*down*/
+		@keyframes six {
+			0% {background-color:#ffcccc;left:900px;top:0px;}
+			50% {background-color:#ccccff;border-radius:20px;width:20px;height: 20px;}
+			100% {background-color:#ccffff;left:900px;top:200px;}
+		}
+		/*up*/
+		@keyframes seven {
+			0% {background-color:#ffcccc;left:1020px;top:1000px;}
+			50% {background-color:#ccccff;border-radius:20px;width:20px;height: 20px;}
+			100% {background-color:#ccffff;left:1020px;top:200px;}
+		}
+		/*left*/
+		@keyframes eight {
+			0% {background-color:#ffcccc;left:1000px;top:270px;}
+			50% {background-color:#ccccff;border-radius:20px;width:20px;height: 20px;}
+			100% {background-color:#ccffff;left:300px;top:270px;}
+		}
+		/*right*/
+		@keyframes nine {
+			0% {background-color:#ffcccc;left:0px;top:270px;}
+			50% {background-color:#ccccff;border-radius:20px;width:20px;height: 20px;}
+			100% {background-color:#ccffff;left:420px;top:270px;}
+		}
+		/*down*/
+		@keyframes ten {
+			0% {background-color:#ffcccc;left:600px;top:0px;}
+			50% {background-color:#ccccff;border-radius:20px;width:20px;height: 20px;}
+			100% {background-color:#ccffff;left:600px;top:270px;}
+		}
+		/*up*/
+		@keyframes eleven {
+			0% {background-color:#ffcccc;left:720px;top:1000px;}
+			50% {background-color:#ccccff;border-radius:20px;width:20px;height: 20px;}
+			100% {background-color:#ccffff;left:720px;top:270px;}
+		}
+		/*left*/
+		@keyframes twelve {
+			0% {background-color:#ffcccc;left:1000px;top:270px;}
+			50% {background-color:#ccccff;border-radius:20px;width:20px;height: 20px;}
+			100% {background-color:#ccffff;left:900px;top:270px;}
+		}
+		/*right*/
+		@keyframes thirteen {
+			0% {background-color:#ffcccc;left:0px;top:270px;}
+			50% {background-color:#ccccff;border-radius:20px;width:20px;height: 20px;}
+			100% {background-color:#ccffff;left:1020px;top:270px;}
+		}
+		/*down*/
+		@keyframes fourteen {
+			0% {background-color:#ffcccc;left:300px;top:0px;}
+			50% {background-color:#ccccff;border-radius:20px;width:20px;height: 20px;}
+			100% {background-color:#ccffff;left:300px;top:340px;}
+		}
+		/*up*/
+		@keyframes fifteen {
+			0% {background-color:#ffcccc;left:360px;top:1000px;}
+			50% {background-color:#ccccff;border-radius:20px;width:20px;height: 20px;}
+			100% {background-color:#ccffff;left:360px;top:340px;}
+		}
+		/*left*/
+		@keyframes sixteen {
+			0% {background-color:#ffcccc;left:1000px;top:340px;}
+			50% {background-color:#ccccff;border-radius:20px;width:20px;height: 20px;}
+			100% {background-color:#ccffff;left:420px;top:340px;}
+		}
+		/*right*/
+		@keyframes seventeen {
+			0% {background-color:#ffcccc;left:0px;top:340px;}
+			50% {background-color:#ccccff;border-radius:20px;width:20px;height: 20px;}
+			100% {background-color:#ccffff;left:600px;top:340px;}
+		}
+		/*down*/
+		@keyframes eighteen {
+			0% {background-color:#ffcccc;left:720px;top:0px;}
+			50% {background-color:#ccccff;border-radius:20px;width:20px;height: 20px;}
+			100% {background-color:#ccffff;left:720px;top:340px;}
+		}
+		/*up*/
+		@keyframes nineteen {
+			0% {background-color:#ffcccc;left:900px;top:1000px;}
+			50% {background-color:#ccccff;border-radius:20px;width:20px;height: 20px;}
+			100% {background-color:#ccffff;left:900px;top:340px;}
+		}
+		/*left*/
+		@keyframes twenty {
+			0% {background-color:#ffcccc;left:1000px;top:340px;}
+			50% {background-color:#ccccff;border-radius:20px;width:20px;height: 20px;}
+			100% {background-color:#ccffff;left:960px;top:340px;}
+		}
+		/*right*/
+		@keyframes twentyone {
+			0% {background-color:#ffcccc;left:0px;top:340px;}
+			50% {background-color:#ccccff;border-radius:20px;width:20px;height: 20px;}
+			100% {background-color:#ccffff;left:1020px;top:340px;}
+		}
+		/*down*/
+		@keyframes twentytwo {
+			0% {background-color:#ffcccc;left:420px;top:0px;}
+			50% {background-color:#ccccff;border-radius:20px;width:20px;height: 20px;}
+			100% {background-color:#ccffff;left:420px;top:410px;}
+		}
+		/*up*/
+		@keyframes twentythree {
+			0% {background-color:#ffcccc;left:600px;top:1000px;}
+			50% {background-color:#ccccff;border-radius:20px;width:20px;height: 20px;}
+			100% {background-color:#ccffff;left:600px;top:410px;}
+		}
+		/*left*/
+		@keyframes twentyfour {
+			0% {background-color:#ffcccc;left:1000px;top:410px;}
+			50% {background-color:#ccccff;border-radius:20px;width:20px;height: 20px;}
+			100% {background-color:#ccffff;left:720px;top:410px;}
+		}
+		/*right*/
+		@keyframes twentyfive {
+			0% {background-color:#ffcccc;left:0px;top:410px;}
+			50% {background-color:#ccccff;border-radius:20px;width:20px;height: 20px;}
+			100% {background-color:#ccffff;left:1020px;top:410px;}
+		}
+		/*down*/
+		@keyframes twentysix {
+			0% {background-color:#ffcccc;left:420px;top:0px;}
+			50% {background-color:#ccccff;border-radius:20px;width:20px;height: 20px;}
+			100% {background-color:#ccffff;left:420px;top:480px;}
+		}
+		/*up*/
+		@keyframes twentyseven {
+			0% {background-color:#ffcccc;left:600px;top:1000px;}
+			50% {background-color:#ccccff;border-radius:20px;width:20px;height: 20px;}
+			100% {background-color:#ccffff;left:600px;top:480px;}
+		}
+		/*left*/
+		@keyframes twentyeight {
+			0% {background-color:#ffcccc;left:1000px;top:480px;}
+			50% {background-color:#ccccff;border-radius:20px;width:20px;height: 20px;}
+			100% {background-color:#ccffff;left:660px;top:480px;}
+		}
+		/*right*/
+		@keyframes twentynine {
+			0% {background-color:#ffcccc;left:0px;top:480px;}
+			50% {background-color:#ccccff;border-radius:20px;width:20px;height: 20px;}
+			100% {background-color:#ccffff;left:720px;top:480px;}
+		}
+		/*down*/
+		@keyframes thirty {
+			0% {background-color:#ffcccc;left:1020px;top:0px;}
+			50% {background-color:#ccccff;border-radius:20px;width:20px;height: 20px;}
+			100% {background-color:#ccffff;left:1020px;top:480px;}
+		}
+
+		
+
+	</style>
+
+	<script>
+	</script>
+
+</body>
+</html>

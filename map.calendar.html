@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title></title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <link href='assets/css/fullcalendar.min.css' rel='stylesheet' />
+    <link href='assets/css/fullcalendar.print.min.css' rel='stylesheet' media='print' />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src='assets/js/fullcalendar.min.js'></script>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.38.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.38.0/mapbox-gl.css' rel='stylesheet' />
+    <link href="https://fonts.googleapis.com/css?family=Acme|Architects+Daughter|Audiowide|Bad+Script|Codystar|Armata|Crete+Round|Cutive+Mono|IM+Fell+English+SC|Indie+Flower|Josefin+Sans|Karla|Kite+One|Michroma|Nothing+You+Could+Do|Ovo|PT+Sans+Caption|Pacifico|Permanent+Marker|Play|Poppins|Rock+Salt|Rokkitt|Russo+One|Shadows+Into+Light|Short+Stack|Slabo+27px|Syncopate|Vast+Shadow|Work+Sans|Yrsa|Zeyada" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            /*Earth Gradient*/
+            /*background: linear-gradient(to right, #fff2e6, #ddffcc, #cce6ff);*/
+            background-image: url(assets/images/dark-triangles.png);  
+        }
+        .jumbotron {
+            margin-top:0;
+            padding-top:0px;
+            max-height:200px;
+            /*border-right:4px solid yellow;*/
+            border-margin:-50px;
+            background: linear-gradient(135deg, rgba(85,239,203,1) 0%,rgba(30,87,153,1) 0%,rgba(85,239,203,1) 0%,rgba(91,202,255,1) 100%);
+            color: #f7f7f7;
+        }
+        .jumbotron #h2 {
+            padding-left:40px;
+            color:#e6005c;
+            animation-name: example;
+            animation-duration: 4s;
+            animation-iteration-count:infinite;
+            letter-spacing:5px;
+            font-weight:bolder;
+            font-size:140px;
+            /*font-family: 'Poppins', sans-serif;*/
+            font-family: 'Play', sans-serif;
+            /*font-family: 'Vast Shadow', cursive;*/
+        }
+        .jumbotron p {
+            display:inline-block;
+            color:#333333;
+            margin-left:20px;
+            padding-top:-20px;
+            font-size:30px;
+            letter-spacing:6px;
+            border-top:4px solid #333333;
+            font-family: 'Armata', sans-serif;
+
+        }
+        @keyframes example {
+            0%   {color: #333333;}
+            50%  {color: #ff3300;}
+            100% {color: #6600cc;}
+        }
+        .jumbotron h1 {
+            text-indent:40px;
+            margin-top:5px;
+            padding-top:-60px;
+            color:#333333;
+            font-size:110px;
+            font-weight:bold; 
+            font-family: 'Rock Salt', cursive;
+        }
+        #map { 
+         /* position:absolute; */
+         height:540px;
+         width:100%;
+         /*border:4px solid #333333;*/
+         /* border-radius:8px;*/
+     }
+     .marker {
+        /*background-image: url('http://www.iconsdb.com/icons/preview/orange/map-marker-2-xxl.png');*/
+        background-image: url('https://cdn1.iconfinder.com/data/icons/Map-Markers-Icons-Demo-PNG/256/Map-Marker-Flag--Left-Pink.png');
+        /*background-image: url('https://cdn3.iconfinder.com/data/icons/map-markers-2/512/marker_2-256.png');*/
+        background-size: cover;
+        width: 50px;
+        height: 50px;
+        /*border-radius: 50%;*/
+        cursor: pointer;
+    }
+    .col-md-3 {
+        padding:3px;
+    }
+    .mapboxgl-popup {
+        max-width: 320px;
+        height:auto;
+        font-size:20px;
+    }
+    .mapInfo{
+        color:#ffffff;
+    }
+    #calendar {
+        background: linear-gradient(to right, #ffa280, #ff8f66);  
+     /*   border-radius:8px;
+        margin-bottom:20px; 
+        background-color:#d9d9d9;*/
+        height:100%;
+        width:100%;
+        /* border:4px solid #333333;*/
+    }
+    #backStreams {
+        color:black;
+    }
+    .panel > .panel-heading {
+        background-color:#333333;
+        color:white;
+    }
+    .panel > .panel-title {
+    }
+    .panel {
+        border:3px solid #333333;
+        border-radius:5px;
+    }
+
+    .panel-body {
+        padding: 0px;
+    }
+    ul {
+        padding: 14px 16px;
+        color:#ffffff;
+        text-decoration:none;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+</style>
+</head>
+
+<body>
+    <div>
+       <nav class="navbar navbar-inverse">
+           <ul class="nav navbar-nav">
+              <li><a href="index.html">Home</a></li>
+              <li class="active"><a href="#">Events</a></li>
+              <li><a href="#mapTop">Map</a></li>
+              <li><a href="#calTop">Calendar</a></li>
+              <li><a href="shrink.html">404</a></li>
+          </ul>
+      </nav>
+  </div>
+  <div class="container">
+
+
+      <div class="row">
+        <div class="jumbotron">
+            <h1>Epic<span id="h2">GG</span></h1>
+            <p>Your Gaming Content Source</p>
+        </div>
+    </div>
+
+    <div class="row">     
+        <div class="col-md-9">
+            <div class="panel">
+                <div class="panel-heading">
+                  <div class="panel-title" id="mapTop">Map of Upcoming E-Sports Events</div>
+              </div>
+              <div class="panel-body">
+                <div id='map'></div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-md-3">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+              <div class="panel-title">Map Info</div>
+          </div>
+          <div class="panel-body">
+            <p>The map to the left shows the locations of all of the national E-Sports events!</p>
+            <p>Click a flag to get more info on the event! Feel free to zoom in!</p>
+        </div>
+    </div>
+    <!-- <button id="backStreams">Back to the Streams</button> -->
+</div>
+</div>
+
+<div class="row">
+    <div class="col-md-9">
+        <div class="panel">
+            <div class="panel-heading" id="calTop">
+              <div class="panel-title">Calendar of Upcoming E-Sports Events</div>
+          </div>
+          <div class="panel-body">
+            <div id='calendar'></div>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-3">
+    <div class="panel">
+        <div class="panel-heading">
+          <div class="panel-title">Calendar Info</div>
+      </div>
+      <div class="panel-body">
+        <p>The calendar to the left shows the date of all of the E-Sports events from now until September!</p>
+        <p>Click on an event in the calendar to be directed to the the events webpage!</p>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</body>
+
+<script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoiZGdhYmFpIiwiYSI6ImNqNDNweGx1dDA3NG0zM243MGQzNzQ0bWcifQ.8Auku3GqYC_xjQFCYBtEMg';
+    var map = new mapboxgl.Map({
+    container: 'map', // container id
+    style: 'mapbox://styles/mapbox/streets-v9',
+    center: [-101.54, 39.58], // starting position
+    zoom: 3 // starting zoom
+
+});
+
+// Add zoom and rotation controls to the map.
+map.addControl(new mapboxgl.NavigationControl());
+
+var cities = [
+{
+    "name": "Atlanta GA",
+    "lat": 33.775,
+    "lng": -84.382,
+    "description": "Terminus Conferece, " + "June 22nd - 25th, " + "https://terminusevent.com/"
+},
+{
+    "name": "Minneapolis MN",
+    "lat": 44.978,
+    "lng":  -93.269,
+    "description": "2D Con, " + "August 11 - 13th, " + "https://www.2dcon.net/"
+},
+{
+    "name": "Indianapolis IN",
+    "lat": 39.768,
+    "lng": -86.158,
+    "description": "Gen Con 50, " + "August 17 - 20th, " + "http://www.gencon.com/"
+},
+{
+    "name": "Austin TX",
+    "lat": 30.267,
+    "lng": -97.743,
+    "description": "Rooster Teeth Expo," + " July 7th - 9th," + " http://www.rtxaustin.com/"
+},
+{
+    "name":"San Jose CA",
+    "lat": 37.338,
+    "lng": -121.886,
+    "description": "Realities 360 Conference, " + " July 26th - 28th, " + "https://www.elearningguild.com/realities360/content/4900/2017-realities360-conference--home/?utm_campaign=r17se&utm_medium=social&utm_source=linkedin-arvrvw"
+},
+{
+    "name":"New York NY",
+    "lat": 40.712,
+    "lng": -74.005,
+    "description": "Games for Change, " + "July 31st - August 2nd, " + "http://festival.gamesforchange.org/"
+},
+{
+    "name":"Orlando FL",
+    "lat": 28.538,
+    "lng": -81.379,
+    "description": "Orlando Interactive Experience, " + "August 27th - August 30th, " + "http://www.orlandoix.com/"
+},
+{
+    "name":"Fiarfax, VA",
+    "lat": 38.846,
+    "lng": -77.306,
+    "description": "Serious Play Conferece, " + "July 18th-20th, " + "http://seriousplayconf.com/"
+},
+{
+    "name": "San Francisco CA",
+    "lat": 37.929,
+    "lng": -122.430,
+    "description": "VR Connects San Francisco, " + "June 27th-28th, " + "http://www.vr-connects.com/sanfrancisco/"
+},
+{   
+    "name":"Memphis TN",
+    "lat": 35.152,
+    "lng": -90.052,
+    "description": "Mid-South Indie Game Expo, " + "July 22nd, " + "http://www.midsouthigx.com/"
+}
+];
+
+console.log(cities);
+
+var newArray = ["i","o",2,3,4,5,6,7,8,9];
+
+for (item in newArray){
+    console.log(newArray[item]);
+}
+
+for (city in cities){
+    console.log(cities[city]["name"]);    
+    var popup = new mapboxgl.Popup({offset: 50})
+    .setText(cities[city]["description"]);
+    var el = document.createElement('div');
+    el.className = 'marker';
+    new mapboxgl.Marker(el, {offset:[-25, -50]})
+    .setLngLat([cities[city]["lng"], cities[city]["lat"]])
+        .setPopup(popup) // sets a popup on this marker
+        .addTo(map);
+
+    }
+
+    $('#calendar').fullCalendar({
+        defaultDate: '2017-06-12',
+        editable: false,
+            eventLimit: true, // allow "more" link when too many events
+            events: [
+            {
+                title: 'Terminus Conference',
+                start: '2017-06-22',
+                end: '2017-06-25',
+                url: 'https://terminusevent.com/'
+            },
+            {
+                title: '2D Con',
+                start: '2017-08-11',
+                end: '2017-08-13',
+                url: 'https://www.2dcon.net/'
+            },
+            {
+                title: 'Gen Con 50',
+                start: '2017-08-17',
+                end: '2017-08-20',
+                url: 'http://www.gencon.com/'
+            },
+            {
+                title: 'Rooster Teeth Expo',
+                start: '2017-07-07',
+                end: '2017-07-09',
+                url: 'http://www.rtxaustin.com/'
+            },
+            {
+                title: 'Realities 360 Conference',
+                start: '2017-07-26',
+                end: '2017-07-28',
+                url: 'https://www.elearningguild.com/realities360/content/4900/2017-realities360-conference--home/?utm_campaign=r17se&utm_medium=social&utm_source=linkedin-arvrvw'
+            },
+            {
+                title: 'Games for Change',
+                start: '2017-07-31',
+                end: '2017-08-02',
+                url: 'http://festival.gamesforchange.org/'
+            },
+            {
+                title: 'Orlando Interactive Experience',
+                start: '2017-08-27',
+                end: '2017-08-30',
+                url: 'http://www.orlandoix.com/'
+            },
+            {
+                title: 'Serious Play Conferece',
+                start: '2017-07-18',
+                end: '2017-07-20',
+                url: 'http://seriousplayconf.com/'
+            },
+            {
+                title: 'VR Connects San Francisco',
+                start: '2017-06-27',
+                end: '2017-06-28',
+                url: 'http://www.vr-connects.com/sanfrancisco/'
+            },
+            {
+                title: 'Mid-South Indie Game Expo',
+                start: '2017-07-23',
+                end: '2017-07-25',
+                url: 'http://www.midsouthigx.com/'
+            }
+            ]
+        });
+    // $("#backStreams").on("click", function() {
+    //     location.href = "index.html";
+
+    // })
+
+</script>
+
+
+</html>
+
